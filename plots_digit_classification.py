@@ -15,7 +15,7 @@ def main():
     
     # Use hyperparameter tuning instead of fixed training
     clf = tune_hyperparameters(X_train, y_train)
-    
+    clf = svm.SVC(gamma=args.gamma, C=args.C)
     predicted = predict(clf, X_test)
     plot_predictions(X_test, predicted)
     print_classification_report(y_test, predicted, clf)
